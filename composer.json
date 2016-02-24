@@ -1,7 +1,7 @@
 {
     "name": "zenstruck/string",
     "type": "library",
-    "description": "String utilities.",
+    "description": "String utilities (null_trim, remove_whitespace, truncate_word).",
     "keywords": ["string"],
     "homepage": "http://zenstruck.com/projects/string",
     "license": "MIT",
