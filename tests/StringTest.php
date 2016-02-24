@@ -10,7 +10,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider remove_whitespace_provider
      */
-    function test_remove_whitespace($str, $expected)
+    public function test_remove_whitespace($str, $expected)
     {
         $this->assertSame($expected, remove_whitespace($str));
     }
@@ -18,7 +18,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider null_trim_provider
      */
-    function test_null_trim($data, $character_mask, $expected)
+    public function test_null_trim($data, $character_mask, $expected)
     {
         $this->assertSame($expected, null_trim($data, $character_mask));
     }
@@ -26,22 +26,22 @@ class StringTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider truncate_word_provider
      */
-    function test_truncate_word($str, $length, $suffix, $expected)
+    public function test_truncate_word($str, $length, $suffix, $expected)
     {
         $this->assertSame($expected, truncate_word($str, $length, $suffix));
     }
 
-    function remove_whitespace_provider()
+    public function remove_whitespace_provider()
     {
         return array(
             array('foo', 'foo'),
             array('foo    bar', 'foo bar'),
             array('foo &nbsp;   bar', 'foo bar'),
-            array("  foo &nbsp;   \n\n\n  \r  bar", ' foo bar')
+            array("  foo &nbsp;   \n\n\n  \r  bar", ' foo bar'),
         );
     }
 
-    function null_trim_provider()
+    public function null_trim_provider()
     {
         return array(
             array(null, null, null),
@@ -57,22 +57,22 @@ class StringTest extends \PHPUnit_Framework_TestCase
             array(
                 array(' ', 'foo', null, '  foo', array('foo', '', ' ')),
                 null,
-                array(null, 'foo', null, 'foo', array('foo', null, null))
+                array(null, 'foo', null, 'foo', array('foo', null, null)),
             ),
             array(
                 array(' /', 'foo/', '/', '  /foo', array('foo /', '/', '   / ')),
                 ' /',
-                array(null, 'foo', null, 'foo', array('foo', null, null))
+                array(null, 'foo', null, 'foo', array('foo', null, null)),
             ),
             array(
                 array('foo' => '   bar  ', 'bar' => '     '),
                 null,
-                array('foo' => 'bar', 'bar' => null)
-            )
+                array('foo' => 'bar', 'bar' => null),
+            ),
         );
     }
 
-    function truncate_word_provider()
+    public function truncate_word_provider()
     {
         return array(
             array(null, 255, '', ''),
@@ -90,7 +90,7 @@ class StringTest extends \PHPUnit_Framework_TestCase
             array('foo bar baz', 11, '...', 'foo bar baz'),
             array('foo bar baz bob', 11, '...', 'foo bar...'),
             array('foo bar baz', 12, '...', 'foo bar baz'),
-            array('      foo       bar  baz', 10, '...', 'foo bar...')
+            array('      foo       bar  baz', 10, '...', 'foo bar...'),
         );
     }
 }

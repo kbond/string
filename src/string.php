@@ -2,11 +2,10 @@
 /**
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-
 namespace zenstruck\string;
 
 /**
- * Replaces "&nbsp;" with a single space and converts multiple sequential spaces into a single space
+ * Replaces "&nbsp;" with a single space and converts multiple sequential spaces into a single space.
  *
  * @param string $str
  *
@@ -19,7 +18,7 @@ function remove_whitespace($str)
 
 /**
  * Similar to core "trim" but returns null instead of an empty string
- * When an array is passed, all elements get processed recursively
+ * When an array is passed, all elements get processed recursively.
  *
  * @param string|array $data
  * @param null|string  $character_mask
@@ -41,7 +40,7 @@ function null_trim($data, $character_mask = null)
 }
 
 /**
- * Truncates text to a length without breaking words
+ * Truncates text to a length without breaking words.
  *
  * @param string $str
  * @param int    $length
