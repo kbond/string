@@ -27,16 +27,22 @@ function remove_whitespace($str)
  */
 function null_trim($data, $character_mask = null)
 {
-    if (!is_array($data)) {
-        return null === $character_mask ? trim($data) : trim($data, $character_mask) ?: null;
+    if (is_array($data)) {
+        return array_map(
+            function ($value) use ($character_mask) {
+                return null_trim($value, $character_mask);
+            },
+            $data
+        );
     }
 
-    return array_map(
-        function ($value) use ($character_mask) {
-            return null_trim($value, $character_mask);
-        },
-        $data
-    );
+    $trimmedValue = null === $character_mask ? trim($data) : trim($data, $character_mask);
+
+    if ($trimmedValue === '') {
+        return null;
+    }
+
+    return $trimmedValue;
 }
 
 /**

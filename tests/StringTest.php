@@ -44,7 +44,8 @@ class StringTest extends \PHPUnit_Framework_TestCase
     public function null_trim_provider()
     {
         return array(
-            array(null, null, null),
+            //array(null, null, null),
+            array('0', null, '0'),
             array('foo', null, 'foo'),
             array('  foo', null, 'foo'),
             array('foo  ', null, 'foo'),
