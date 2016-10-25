@@ -15,17 +15,12 @@ A [Twig Extension](https://github.com/kbond/string-twig) is available.
 
 ## Usage
 
-**NOTE**: `use function ...` requires PHP 5.6+. For previous versions, you need to use
-the full function namespace (ie `zenstruck\string\null_trim(" foo ")`).
-
 ### remove_whitespace
 
 Replaces `&nbsp;` with a single space and converts multiple sequential spaces into a
 single space.
 
 ```php
-use function zenstruck/string/remove_whitespace;
-
 $ret = remove_whitespace("  foo &nbsp;   \n\n\n  \r  bar"); // $ret = "foo bar"
 ```
 
@@ -35,8 +30,6 @@ Similar to core "trim" but returns null instead of an empty string. When an arra
 passed, all elements get processed recursively.
 
 ```php
-use function zenstruck\string\null_trim;
-
 $ret = null_trim(" foo  bar   "); // $ret = "foo bar"
 
 $ret = null_trim("   "); // $ret = null
@@ -51,7 +44,5 @@ $ret = null_trim("foo / ", "/ "); // $ret = "foo"
 Truncates text to a length without breaking words (calls `remove_whitespace` before truncating).
 
 ```php
-use function zenstruck\string\truncate_word;
-
 $ret = truncate_word("      foo       bar  baz", 10); // $ret = "foo bar..."
 ```
