@@ -12,11 +12,15 @@
         }
     ],
     "autoload": {
+        "psr-4": { "Zenstruck\\String\\": "src/" },
         "files": ["src/string.php"]
     },
     "extra": {
         "branch-alias": {
             "dev-master": "2.x-dev"
         }
+    },
+    "require-dev": {
+        "twig/twig": "^2.10"
     }
 }
